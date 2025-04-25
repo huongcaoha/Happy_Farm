@@ -20,10 +20,10 @@ public class User {
     private String password;
     private String email;
     private String phone;
-    private Role role;
-    private double balance;
-    private boolean status;
-    private LocalDateTime created_at;
+    private Role role = Role.USER ;
+    private double balance = 1000 ;
+    private boolean status = true;
+    private LocalDateTime createdDate = LocalDateTime.now() ;
 
 
 }

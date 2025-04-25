@@ -28,7 +28,8 @@ public class UserLand {
     @ManyToOne
     @JoinColumn(name = "seedsId")
     private Seeds seeds;
-    private LocalDateTime harvestTime ;
-
+    private boolean status = true;
+    private LocalDateTime harvestTime = null;
+    private LocalDateTime createdDate = LocalDateTime.now() ;
 
 }

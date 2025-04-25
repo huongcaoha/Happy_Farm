@@ -20,12 +20,15 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter' // Đã bao gồm spring-tx
+    implementation 'org.springframework:spring-orm' // Thêm dependency cho Spring ORM
+    implementation 'org.hibernate.orm:hibernate-core:6.6.11.Final' // Thêm dependency cho Hibernate
     implementation 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok:1.18.24' // Kiểm tra phiên bản mới nhất
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     runtimeOnly 'com.mysql:mysql-connector-j'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {

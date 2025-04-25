@@ -3,6 +3,8 @@ package com.example.demo.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +24,9 @@ public class UserSeeds {
     @ManyToOne
     @JoinColumn(name = "seedsId")
     private Seeds seeds ;
+    private boolean status = true;
     private int quantity ;
+    private LocalDateTime createdDate = LocalDateTime.now() ;
 
 
 }

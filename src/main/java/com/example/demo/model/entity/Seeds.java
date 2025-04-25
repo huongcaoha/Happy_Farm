@@ -3,6 +3,8 @@ package com.example.demo.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,6 +22,7 @@ public class Seeds {
     private String description ;
     private double postHarvestPrice ;
     private String image ;
-
+    private boolean status = true ;
+    private LocalDateTime createDate = LocalDateTime.now() ;
 
 }
