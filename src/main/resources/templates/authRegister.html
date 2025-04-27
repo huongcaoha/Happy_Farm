@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Mời nhập pass code đã đợc gửi tới email vừa đăng ký của bạn !</h1>
+    <form action="/auth/authRegister" method="post">
+        <div>
+            <lable th:for="passCode">Pass code</lable>
+            <input type="text" name="passCode" id="passCode">
+        </div>
+
+        <button type="submit">Xác thực</button>
+    </form>
+    <div th:if="${error}">
+        <p style="color: red" th:text="${error}"></p>
+    </div>
+</body>
+</html>

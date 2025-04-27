@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form action="/auth/register" method="post">
+        <div>
+            <lable th:for="username">Username</lable>
+            <input type="text" name="username" id="username">
+        </div>
+
+        <div>
+            <lable th:for="password">Password</lable>
+            <input type="text" name="password" id="password">
+        </div>
+
+        <div>
+            <lable th:for="email">Email</lable>
+            <input type="text" name="email" id="email">
+        </div>
+
+        <div>
+            <lable th:for="phone">Phone</lable>
+            <input type="text" name="phone" id="phone">
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div th:if="${error}">
+       <p style="color: red" th:text="${error}"></p>
+    </div>
+</body>
+</html>

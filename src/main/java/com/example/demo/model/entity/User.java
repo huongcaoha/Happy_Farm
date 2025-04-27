@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,17 +14,25 @@ import java.time.LocalDateTime;
 @Builder
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id ;
+    private int id;
+
     private String username;
     private String password;
     private String email;
     private String phone;
-    private Role role = Role.USER ;
-    private double balance = 1000 ;
+
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.USER;
+
+    private double balance = 1000;
     private boolean status = true;
-    private LocalDateTime createdDate = LocalDateTime.now() ;
+    private LocalDateTime createdDate;
 
-
+    @PrePersist
+    protected void onCreate() {
+        createdDate = LocalDateTime.now();
+    }
 }

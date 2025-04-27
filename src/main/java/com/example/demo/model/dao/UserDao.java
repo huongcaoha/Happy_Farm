@@ -25,6 +25,31 @@ public class UserDao implements IDao<User> , IAuth {
     }
 
     @Override
+    public boolean checkUsernameExisted(String username) {
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            int count = session.createQuery("from User where username = :username", User.class)
+                    .setParameter("username",username).getSingleResult().getId();
+            return count > 0;
+        } catch (Exception e) {
+            return false ;
+        }
+
+    }
+
+    @Override
+    public boolean checkEmailExisted(String email) {
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            int count = session.createQuery("from User where email = :email", User.class)
+                    .setParameter("email",email).getSingleResult().getId();
+            return count > 0;
+        } catch (Exception e) {
+            return false ;
+        }
+    }
+
+    @Override
     public List<User> findAll() {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("from User", User.class).getResultList();

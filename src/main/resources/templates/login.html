@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Login</h1>
+
+    <form action="/auth/login" method="post">
+        <div>
+            <lable th:for="username">Username</lable>
+            <input type="text" name="username" id="username">
+        </div>
+
+        <div>
+            <lable th:for="password">Password</lable>
+            <input type="text" name="password" id="password">
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+    <a href="/auth/register">Register</a>
+    <div th:if="${messageSuccess}">
+        <script>
+            alert("Đăng ký thành công")
+        </script>
+    </div>
+</body>
+</html>
